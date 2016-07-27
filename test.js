@@ -1,5 +1,5 @@
 var assert = require('assert')
-var Cubby = require('./')
+var Kubby = require('./')
 var display
 
 if (typeof window !== 'undefined') {
@@ -45,45 +45,45 @@ function test(label, func) {
 
 module.exports = function() {
 
-  test('cubby', function() {
-    var cubby = Cubby()
-    assert(cubby, 'cubby doesn\'t exist')
+  test('kubby', function() {
+    var kubby = Kubby()
+    assert(kubby, 'kubby doesn\'t exist')
   })
 
   test('should store item by label', function() {
-    var cubby = Cubby()
-    cubby.set('test-thing', {thing:'test'})
+    var kubby = Kubby()
+    kubby.set('test-thing', {thing:'test'})
     assert.equal(
       JSON.parse(localStorage.getItem('test-thing')).thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
   })
 
   test('should get item by label', function() {
-    var cubby = Cubby()
+    var kubby = Kubby()
     assert.equal(
-      cubby.get('test-thing').thing,
+      kubby.get('test-thing').thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
   })
 
   test('should store item in session by label', function() {
-    var cubby = Cubby({storage:'session'})
-    cubby.set('test-thing', {thing:'test'})
+    var kubby = Kubby({storage:'session'})
+    kubby.set('test-thing', {thing:'test'})
     assert.equal(
       JSON.parse(sessionStorage.getItem('test-thing')).thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
-    cubby.empty()
+    kubby.empty()
   })
 
-  test('should empty cubby', function() {
-    var cubby = Cubby()
-    cubby.empty()
-    assert.equal(cubby.get('test-thing'), null, 'cubby did not empty')
+  test('should empty kubby', function() {
+    var kubby = Kubby()
+    kubby.empty()
+    assert.equal(kubby.get('test-thing'), null, 'kubby did not empty')
   })
 
 }()

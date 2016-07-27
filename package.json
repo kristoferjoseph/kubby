@@ -1,5 +1,5 @@
 {
-  "name": "cubby",
+  "name": "kubby",
   "version": "1.0.0",
   "description": "Web storage utility",
   "main": "index.js",

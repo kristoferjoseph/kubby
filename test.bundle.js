@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = function cubby(options) {
+module.exports = function kubby(options) {
   options = options || {}
   var storage = options.storage === 'session'?
     sessionStorage:
@@ -12,7 +12,7 @@ module.exports = function cubby(options) {
       }
     }
     else {
-      throw Error('cubby.set requires a string label and data to store.')
+      throw Error('kubby.set requires a string label and data to store.')
     }
   }
 
@@ -23,7 +23,7 @@ module.exports = function cubby(options) {
       }
     }
     else {
-      throw Error('cubby.get requires a string label to retrieve data from store.')
+      throw Error('kubby.get requires a string label to retrieve data from store.')
     }
   }
 
@@ -1146,7 +1146,7 @@ function hasOwnProperty(obj, prop) {
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./support/isBuffer":5,"_process":4,"inherits":3}],7:[function(require,module,exports){
 var assert = require('assert')
-var Cubby = require('./')
+var Kubby = require('./')
 var display
 
 if (typeof window !== 'undefined') {
@@ -1192,45 +1192,45 @@ function test(label, func) {
 
 module.exports = function() {
 
-  test('cubby', function() {
-    var cubby = Cubby()
-    assert(cubby, 'cubby doesn\'t exist')
+  test('kubby', function() {
+    var kubby = Kubby()
+    assert(kubby, 'kubby doesn\'t exist')
   })
 
   test('should store item by label', function() {
-    var cubby = Cubby()
-    cubby.set('test-thing', {thing:'test'})
+    var kubby = Kubby()
+    kubby.set('test-thing', {thing:'test'})
     assert.equal(
       JSON.parse(localStorage.getItem('test-thing')).thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
   })
 
   test('should get item by label', function() {
-    var cubby = Cubby()
+    var kubby = Kubby()
     assert.equal(
-      cubby.get('test-thing').thing,
+      kubby.get('test-thing').thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
   })
 
   test('should store item in session by label', function() {
-    var cubby = Cubby({storage:'session'})
-    cubby.set('test-thing', {thing:'test'})
+    var kubby = Kubby({storage:'session'})
+    kubby.set('test-thing', {thing:'test'})
     assert.equal(
       JSON.parse(sessionStorage.getItem('test-thing')).thing,
       'test',
-      'cubby did not store an item'
+      'kubby did not store an item'
     )
-    cubby.empty()
+    kubby.empty()
   })
 
-  test('should empty cubby', function() {
-    var cubby = Cubby()
-    cubby.empty()
-    assert.equal(cubby.get('test-thing'), null, 'cubby did not empty')
+  test('should empty kubby', function() {
+    var kubby = Kubby()
+    kubby.empty()
+    assert.equal(kubby.get('test-thing'), null, 'kubby did not empty')
   })
 
 }()

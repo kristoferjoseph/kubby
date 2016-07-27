@@ -1,21 +1,21 @@
-# 🌟Cubby🌟
+# 🌟Kubby🌟
 🗃 Simplified browser storage
 
 ## Install
-`npm i cubby --save`
+`npm i kubby --save`
 
 ## Usage
 #### persistent
 ```
-var cubby = require('cubby')()
-cubby.set('lunchbox', {lunch:'pb&j'})
-console.log(cubby.get('lunchbox'))// pb&j
+var kubby = require('kubby')()
+kubby.set('lunchbox', {lunch:'pb&j'})
+console.log(kubby.get('lunchbox'))// pb&j
 ```
 #### session based
 ```
-var cubby = require('cubby')({storage:'session'})
-cubby.set('lunchbox', {lunch:'pb&j'})
-console.log(cubby.get('lunchbox'))// pb&j
+var kubby = require('kubby')({storage:'session'})
+kubby.set('lunchbox', {lunch:'pb&j'})
+console.log(kubby.get('lunchbox'))// pb&j
 ```
 ## Test
 `npm test`

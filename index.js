@@ -1,4 +1,4 @@
-module.exports = function cubby(options) {
+module.exports = function kubby(options) {
   options = options || {}
   var storage = options.storage === 'session'?
     sessionStorage:
@@ -11,7 +11,7 @@ module.exports = function cubby(options) {
       }
     }
     else {
-      throw Error('cubby.set requires a string label and data to store.')
+      throw Error('kubby.set requires a string label and data to store.')
     }
   }
 
@@ -22,7 +22,7 @@ module.exports = function cubby(options) {
       }
     }
     else {
-      throw Error('cubby.get requires a string label to retrieve data from store.')
+      throw Error('kubby.get requires a string label to retrieve data from store.')
     }
   }
 
