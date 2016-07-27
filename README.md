@@ -1,4 +1,4 @@
-# 🌟Kubby🌟
+# Kubby
 🗃 Simplified browser storage
 
 ## Install
