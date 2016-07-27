@@ -1,0 +1,30 @@
+{
+  "name": "cubby",
+  "version": "1.0.0",
+  "description": "Web storage utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-build && open ./test.html",
+    "test-build": "browserify ./test.js -o ./test.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristoferjoseph/cubby.git"
+  },
+  "keywords": [
+    "web",
+    "storage",
+    "localstorage",
+    "session",
+    "sessionstorage"
+  ],
+  "author": "@dam",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kristoferjoseph/cubby/issues"
+  },
+  "homepage": "https://github.com/kristoferjoseph/cubby#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0"
+  }
+}
