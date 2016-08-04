@@ -15,15 +15,28 @@ module.exports = function kubby(options) {
     }
   }
 
-  function get(label) {
-    if (label && typeof label === 'string') {
-      if (typeof window !== 'undefined') {
-        return JSON.parse(storage.getItem(label))
-      }
+  function get(labels) {
+    var result
+    if (Array.isArray(labels)) {
+      result = {}
+      labels.forEach(function(l) {
+        Object.assign(result, actualGet(l))
+      })
+    }
+    else if (typeof labels === 'string') {
+      result = actualGet(labels)
     }
     else {
       throw Error('kubby.get requires a string label to retrieve data from store.')
     }
+
+    return result
+  }
+
+  function actualGet(label) {
+      if (typeof window !== 'undefined') {
+        return JSON.parse(storage.getItem(label))
+      }
   }
 
   function empty() {

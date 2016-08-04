@@ -86,4 +86,14 @@ module.exports = function() {
     assert.equal(kubby.get('test-thing'), null, 'kubby did not empty')
   })
 
+  test('should get array of labels', function(t) {
+    var kubby = Kubby()
+    var lunch
+    kubby.set('bag', {sandwich:'grilled cheese'})
+    kubby.set('thermos', {soup:'tomato'})
+    kubby.set('tupperware', {dip:'hummus'})
+    lunchbox = kubby.get(['bag', 'thermos', 'tupperware'])
+    assert.deepEqual(lunchbox,{sandwich:'grilled cheese', soup:'tomato', dip:'hummus'})
+  })
+
 }()

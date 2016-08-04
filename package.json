@@ -26,5 +26,6 @@
   "homepage": "https://github.com/kristoferjoseph/cubby#readme",
   "devDependencies": {
     "browserify": "^13.1.0"
-  }
+  },
+  "dependencies": {}
 }
