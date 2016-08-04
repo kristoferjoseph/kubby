@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-build && open ./test.html",
+    "umd": "browserify ./index.js --standalone kubby | uglifyjs --compress --mangle --screw-ie8 > kubby.umd.js",
     "test-build": "browserify ./test.js -o ./test.bundle.js"
   },
   "repository": {
@@ -25,7 +26,8 @@
   },
   "homepage": "https://github.com/kristoferjoseph/cubby#readme",
   "devDependencies": {
-    "browserify": "^13.1.0"
+    "browserify": "^13.1.0",
+    "uglify-js": "^2.7.0"
   },
   "dependencies": {}
 }

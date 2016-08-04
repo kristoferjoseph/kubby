@@ -1,5 +1,5 @@
 # Kubby
-Simplified browser storage 🗃 
+Simplified browser storage 🗃
 
 ## Install
 `npm i kubby --save`
