@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kristoferjoseph/cubby.git"
+    "url": "git+https://github.com/kristoferjoseph/kubby.git"
   },
   "keywords": [
     "web",
@@ -22,9 +22,9 @@
   "author": "@dam",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/kristoferjoseph/cubby/issues"
+    "url": "https://github.com/kristoferjoseph/kubby/issues"
   },
-  "homepage": "https://github.com/kristoferjoseph/cubby#readme",
+  "homepage": "https://github.com/kristoferjoseph/kubby#readme",
   "devDependencies": {
     "browserify": "^13.1.0",
     "uglify-js": "^2.7.0"
