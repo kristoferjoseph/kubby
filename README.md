@@ -31,7 +31,5 @@ console.log(lunchbox)//Outputs {sandwich:'grilled cheese', soup:'tomato', dip:'h
 kubby.empty()
 ```
 
-```
 ## Test
 `npm test`
-```
