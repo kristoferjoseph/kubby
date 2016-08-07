@@ -1,14 +1,19 @@
 module.exports = function kubby(options) {
   options = options || {}
-  var storage = options.storage === 'session'?
-    sessionStorage:
-    localStorage
+  var noop = function(){}
+  var storage
+  if (typeof window === 'undefined') {
+    storage = {setItem:noop,getItem:noop,clear:noop}
+  }
+  else {
+   storage = options.storage === 'session'?
+    window.sessionStorage:
+    window.localStorage
+  }
 
   function set(label, data) {
     if (label && typeof label === 'string' && data) {
-      if (typeof window !== 'undefined') {
-        storage.setItem(label, JSON.stringify(data))
-      }
+      storage.setItem(label, JSON.stringify(data))
     }
     else {
       throw Error('kubby.set requires a string label and data to store.')
@@ -34,15 +39,11 @@ module.exports = function kubby(options) {
   }
 
   function actualGet(label) {
-      if (typeof window !== 'undefined') {
-        return JSON.parse(storage.getItem(label))
-      }
+    return JSON.parse(storage.getItem(label))
   }
 
   function empty() {
-    if (typeof window !== 'undefined') {
-      storage.clear()
-    }
+    storage.clear()
   }
 
   return {

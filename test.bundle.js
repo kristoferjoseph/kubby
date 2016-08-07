@@ -1,15 +1,20 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function kubby(options) {
   options = options || {}
-  var storage = options.storage === 'session'?
-    sessionStorage:
-    localStorage
+  var noop = function(){}
+  var storage
+  if (typeof window === 'undefined') {
+    storage = {setItem:noop,getItem:noop,clear:noop}
+  }
+  else {
+   storage = options.storage === 'session'?
+    window.sessionStorage:
+    window.localStorage
+  }
 
   function set(label, data) {
     if (label && typeof label === 'string' && data) {
-      if (typeof window !== 'undefined') {
-        storage.setItem(label, JSON.stringify(data))
-      }
+      storage.setItem(label, JSON.stringify(data))
     }
     else {
       throw Error('kubby.set requires a string label and data to store.')
@@ -35,15 +40,11 @@ module.exports = function kubby(options) {
   }
 
   function actualGet(label) {
-      if (typeof window !== 'undefined') {
-        return JSON.parse(storage.getItem(label))
-      }
+    return JSON.parse(storage.getItem(label))
   }
 
   function empty() {
-    if (typeof window !== 'undefined') {
-      storage.clear()
-    }
+    storage.clear()
   }
 
   return {
